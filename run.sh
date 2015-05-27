@@ -155,7 +155,11 @@ DIR=$(mktemp -d) && cd ${DIR} && \
               make install && \
               rm -rf ${DIR}
 
-yum remove -y autoconf automake gcc gcc-c++ git libtool nasm  zlib-devel tar xz perl libgomp libstdc++-devel openssl-devel mercurial cmake perl which
+# nodejs
+curl -sL https://rpm.nodesource.com/setup | bash -
+yum install -y nodejs
+
+yum remove -y libtool nasm  zlib-devel tar xz perl libgomp libstdc++-devel openssl-devel mercurial cmake perl which
 yum clean all
 rm -rf /var/lib/yum/yumdb/*
 echo "/usr/local/lib" > /etc/ld.so.conf.d/libc.conf
