@@ -23,7 +23,7 @@ ENV           FDKAAC_VERSION  0.1.3
 ENV           SRC             /usr/local
 ENV           LD_LIBRARY_PATH ${SRC}/lib
 ENV           PKG_CONFIG_PATH ${SRC}/lib/pkgconfig
-ENV			  NODEJS_VERSION  0.10.38
+ENV           NODEJS_VERSION  0.10.38
 
 COPY          run.sh /tmp/run.sh
 
@@ -36,7 +36,3 @@ RUN           ffmpeg -buildconf
 # Make sure Node.js is installed
 RUN           node -v
 
-WORKDIR /tmp/workdir
-
-CMD           ["--help"]
-ENTRYPOINT    ["ffmpeg"]
