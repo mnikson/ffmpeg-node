@@ -1,7 +1,7 @@
 # ffmpeg-nodejs
 #
 # FFMPEG-VERSION               2.6.3-1
-# NODEJS-VERSION			   0.10.38
+# NODEJS-VERSION               0.10.38
 #
 # From https://trac.ffmpeg.org/wiki/CompilationGuide/Centos
 # From https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
