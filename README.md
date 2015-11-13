@@ -8,6 +8,8 @@ This repo has a Dockerfile to create a Docker image wth FFMPEG and Nodejs. It co
 
 You can install the latest build of this image by running `docker pull raman148/ffmpeg-node`.
 
+Please use [Github issues](https://github.com/jrottenberg/ffmpeg/issues/new) to report any bug or missing feature.
+
 Test
 ----
 
@@ -15,7 +17,7 @@ Test
 $ docker run raman148/ffmpeg-node ffmpeg -buildconf
 ffmpeg version 2.8.1 Copyright (c) 2000-2015 the FFmpeg developers
   built with gcc 4.8.3 (GCC) 20140911 (Red Hat 4.8.3-9)
-  configuration: --prefix=/usr/local --extra-cflags=-I/usr/local/include --extra-ldflags=-L/usr/local/lib --bindir=/usr/local/bin --extra-libs=-ldl --enable-version3 --enable-libfaac --enable-libmp3lame --enable-libx264 --enable-libxvid --enable-gpl --enable-postproc --enable-nonfree --enable-avresample --enable-libfdk_aac --disable-debug --enable-small --enable-openssl --enable-libx265 --enable-libopus --enable-libvorbis --enable-libvpx
+  configuration: --prefix=/usr/local --extra-cflags=-I/usr/local/include --extra-ldflags=-L/usr/local/lib --bindir=/usr/local/bin --extra-libs=-ldl --enable-version3 --enable-libfaac --enable-libmp3lame --enable-libx264 --enable-libxvid --enable-gpl --enable-postproc --enable-nonfree --enable-avresample --enable-libfdk_aac --disable-debug --enable-small --enable-openssl --enable-libtheora --enable-libx265 --enable-libopus --enable-libvorbis --enable-libvpx
   libavutil      54. 31.100 / 54. 31.100
   libavcodec     56. 60.100 / 56. 60.100
   libavformat    56. 40.101 / 56. 40.101
@@ -45,6 +47,7 @@ ffmpeg version 2.8.1 Copyright (c) 2000-2015 the FFmpeg developers
     --disable-debug
     --enable-small
     --enable-openssl
+    --enable-libtheora
     --enable-libx265
     --enable-libopus
     --enable-libvorbis
@@ -85,6 +88,7 @@ Keep uptodate
 -	YASM_VERSION https://github.com/yasm/yasm/releases
 -	OGG_VERSION https://xiph.org/downloads/
 -	VORBIS_VERSION https://xiph.org/downloads/
+-	THEORA_VERSION https://xiph.org/downloads/
 -	LAME_VERSION http://lame.sourceforge.net/download.php
 -	OPUS_VERSION https://www.opus-codec.org/downloads/
 -	FAAC_VERSION http://www.audiocoding.com/downloads.html
