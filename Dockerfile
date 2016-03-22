@@ -1,7 +1,7 @@
 # ffmpeg-nodejs
 #
 # FFMPEG-VERSION               2.8.1-1
-# NODEJS-VERSION               4.2.2
+# NODEJS-VERSION               5.6.0
 # VERSION               
 #
 # From https://trac.ffmpeg.org/wiki/CompilationGuide/Centos
@@ -26,7 +26,7 @@ ENV           FFMPEG_VERSION=2.8.1 \
               XVID_VERSION=1.3.4   \
               FDKAAC_VERSION=0.1.4 \
               X265_VERSION=1.8     \
-              NODEJS_VERSION=4.2.2 
+              NODEJS_VERSION=5.6.0 
 
 COPY          run.sh /tmp/run.sh
 
