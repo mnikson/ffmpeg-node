@@ -9,7 +9,7 @@ export SRC=/usr/local
 export PKG_CONFIG_PATH=${SRC}/lib/pkgconfig
 
 yum install -y autoconf automake gcc gcc-c++ git libtool make nasm zlib-devel \
-  openssl-devel tar cmake perl which bzip2 ImageMagick ImageMagick-devel
+  openssl-devel tar cmake perl which bzip2
 
 # yasm
 DIR=$(mktemp -d) && cd ${DIR} && \
@@ -181,6 +181,10 @@ DIR=$(mktemp -d) && cd ${DIR} && \
   make && \
   make install && \
   rm -rf ${DIR}
+
+yum install -y ImageMagick ImageMagick-devel
+convert --version
+
 
 yum clean all
 rm -rf /var/lib/yum/yumdb/*
