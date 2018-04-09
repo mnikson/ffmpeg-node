@@ -9,7 +9,7 @@ export SRC=/usr/local
 export PKG_CONFIG_PATH=${SRC}/lib/pkgconfig
 
 yum install -y autoconf automake gcc gcc-c++ git libtool make nasm zlib-devel \
-  openssl-devel tar cmake perl which bzip2
+  openssl-devel tar cmake perl which bzip2 ImageMagick ImageMagick-devel
 
 # yasm
 DIR=$(mktemp -d) && cd ${DIR} && \
@@ -137,24 +137,29 @@ DIR=$(mktemp -d) && cd ${DIR} && \
   rm -rf ${DIR}
 
 # ffmpeg
+# DIR=$(mktemp -d) && cd ${DIR} && \
+#   curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
+#   cd ffmpeg-${FFMPEG_VERSION} && \
+#   ./configure --prefix="${SRC}" --extra-cflags="-I${SRC}/include" \
+#   --extra-ldflags="-L${SRC}/lib" --bindir="${SRC}/bin" \
+#   --extra-libs=-ldl --enable-version3 --enable-libfaac --enable-libmp3lame \
+#   --enable-libx264 --enable-libxvid --enable-gpl \
+#   --enable-postproc --enable-nonfree --enable-avresample --enable-libfdk_aac \
+#   --disable-debug --enable-small --enable-openssl --enable-libtheora \
+#   --enable-libx265 --enable-libopus --enable-libvorbis --enable-libvpx && \
+#   make && \
+#   make install && \
+#   make distclean && \
+#   hash -r && \
+#   cd tools && \
+#   make qt-faststart && \
+#   cp qt-faststart ${SRC}/bin && \
+#   rm -rf ${DIR}
 DIR=$(mktemp -d) && cd ${DIR} && \
-  curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
-  cd ffmpeg-${FFMPEG_VERSION} && \
-  ./configure --prefix="${SRC}" --extra-cflags="-I${SRC}/include" \
-  --extra-ldflags="-L${SRC}/lib" --bindir="${SRC}/bin" \
-  --extra-libs=-ldl --enable-version3 --enable-libfaac --enable-libmp3lame \
-  --enable-libx264 --enable-libxvid --enable-gpl \
-  --enable-postproc --enable-nonfree --enable-avresample --enable-libfdk_aac \
-  --disable-debug --enable-small --enable-openssl --enable-libtheora \
-  --enable-libx265 --enable-libopus --enable-libvorbis --enable-libvpx && \
-  make && \
-  make install && \
-  make distclean && \
-  hash -r && \
-  cd tools && \
-  make qt-faststart && \
-  cp qt-faststart ${SRC}/bin && \
-  rm -rf ${DIR}
+rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro && \
+rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm && \
+yum install ffmpeg ffmpeg-devel -y && \
+ffmpeg -h
 
 # mplayer
 DIR=$(mktemp -d) && cd ${DIR} && \

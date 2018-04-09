@@ -34,7 +34,7 @@ COPY          run.sh /tmp/run.sh
 RUN           bash /tmp/run.sh
 
 # Let's make sure the app built correctly
-RUN           ffmpeg -buildconf
+# RUN           ffmpeg -h
 
 # Make sure Node.js is installed
 RUN           node -v
